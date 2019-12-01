@@ -1,0 +1,23 @@
+table {
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+  }
+  
+   th, td {
+    border: 0.5px solid black;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  h3,h4 {
+    margin-left: 10%;
+  }
+  
+  :host ::ng-deep .mat-sort-header-container {
+    display: flex;
+    justify-content: center;
+  }
+  

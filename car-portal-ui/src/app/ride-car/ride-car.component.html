@@ -1,0 +1,177 @@
+<div class="outerDiv">
+  <div class="divCenter innerDiv">
+    <mat-accordion class="example-headers-align">
+
+      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+
+          </mat-panel-title>
+          <mat-panel-description>
+            <div class="divCenter" style="width:58%"> Car</div>
+
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div>
+          <img src="./assets/car5.png" class="divCenter" style=" width:20%;" />
+          <div>
+            <h2 style="text-align: center !important">{{this.name}}</h2>
+          </div>
+          <div>
+            <h2 style="text-align: center !important">{{this.licensePlate}}</h2>
+          </div>
+
+        </div>
+        <div *ngIf="this.status===0">
+          <img src="./assets/lock_red.png" class="divCenter" style="width:4%;" />
+        </div>
+        <div *ngIf="this.status===1">
+          <img src="./assets/unlock_green.png" class="divCenter" style="width:4%;" />
+        </div>
+        <div>
+          <img src="./assets/speed.png" class="divCenter" style="width:4%;margin-top: 2%;" />
+        </div>
+        <div class="speed_text">
+          <label>{{this.speed}}</label>
+        </div>
+        <div>
+          <img *ngIf="this.leftSignal===1" src="./assets/turn-left.png" class="divCenter"
+            style="width:4%;margin-top: 2%;" />
+          <img *ngIf="this.rightSignal===1" src="./assets/turn-right.png" class="divCenter"
+            style="width:4%;margin-top: 2%;" />
+        </div>
+        <div>
+            <img *ngIf="this.lights===0" src="./assets/lights_off.png" class="divCenter"
+              style="width:4%;margin-top: 2%;" />
+            <img *ngIf="this.lights===1" src="./assets/lights_on.png" class="divCenter"
+              style="width:4%;margin-top: 2%;" />
+              <img *ngIf="this.lights===2" src="./assets/lights_high.png" class="divCenter"
+              style="width:4%;margin-top: 2%;" />
+          </div>
+
+
+      </mat-expansion-panel>
+
+
+
+
+
+
+
+
+      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+
+          </mat-panel-title>
+          <mat-panel-description>
+            <div class="divCenter" style="width:66%"> Ride Car</div>
+
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="divCenter" style="width: 15%;">
+          <div>
+            <h2> Car Start/Stop</h2>
+          </div>
+          <div>
+            <img src="./assets/car5.png" style="width:20%; padding-right: 10%;" />
+            <input type="image" src="./assets/lock_red.png" (click)="turnOff()" style="width:24%;padding-right: 10%;" />
+            <input type="image" src="./assets/unlock_green.png" (click)="turnOn()" style="width:30%" />
+          </div>
+        </div>
+
+
+
+
+        <div class="divCenter" style="width: 16%;">
+          <div>
+            <h2> Speed</h2>
+          </div>
+          <div>
+            <Button (click)="setSpeed(20)" class="btnLights" [disabled]="this.status===0">20</Button>
+            <Button (click)="setSpeed(40)" class="btnLights" [disabled]="this.status===0">40</Button>
+            <Button (click)="setSpeed(60)" class="btnLights" [disabled]="this.status===0">60</Button>
+          </div>
+          <div>
+            <Button (click)="setSpeed(80)" class="btnLights" [disabled]="this.status===0">80</Button>
+            <Button (click)="setSpeed(100)" class="btnLights" [disabled]="this.status===0">100</Button>
+            <Button (click)="setSpeed(120)" class="btnLights" [disabled]="this.status===0">120</Button>
+          </div>
+
+        </div>
+        <mat-action-row >
+          <button mat-button  (click)="save()">Save</button>
+        </mat-action-row>
+
+      </mat-expansion-panel>
+
+
+
+
+
+
+      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+
+          </mat-panel-title>
+          <mat-panel-description>
+            <div class="divCenter" style="width:70%"> Car Settings</div>
+
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+
+
+
+        <div class="divCenter" style="width: 15%;">
+          <div>
+            <h2> Left Indicator</h2>
+          </div>
+          <div>
+            <img src="./assets/turn-left.png" style="width:30%; margin-right: 30%;" />
+            <input *ngIf="this.leftSignal===0" type="image" src="./assets/redcircle.png" (click)="toggleLeftSignal()"
+              style="width:20%;" />
+            <input *ngIf="this.leftSignal===1" type="image" src="./assets/greencircle.png" (click)="toggleLeftSignal()"
+              style="width:20%" />
+          </div>
+        </div>
+
+        <div class="divCenter" style="width: 16%;">
+          <div>
+            <h2> Right Indicator</h2>
+          </div>
+          <div>
+            <img src="./assets/turn-right.png" style="width:30%; margin-right: 30%;" />
+            <input *ngIf="this.rightSignal===0" type="image" src="./assets/redcircle.png" (click)="toggleRightSignal()"
+              style="width:20%;" />
+            <input *ngIf="this.rightSignal===1" type="image" src="./assets/greencircle.png"
+              (click)="toggleRightSignal()" style="width:20%" />
+          </div>
+        </div>
+
+        <div class="divCenter" style="width: 16%;">
+          <div>
+            <h2> Lights Status</h2>
+          </div>
+          <div>
+            <Button (click)="changeLightStatus(0)" class="btnLights">Off</Button>
+            <Button (click)="changeLightStatus(1)" class="btnLights">On</Button>
+            <Button (click)="changeLightStatus(2)" class="btnLights">High</Button>
+
+          </div>
+        </div>
+
+        <mat-action-row>
+          <button mat-button (click)="save()">Save</button>
+        </mat-action-row>
+
+      </mat-expansion-panel>
+
+
+
+    </mat-accordion>
+  </div>
+</div>
