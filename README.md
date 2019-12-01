@@ -19,7 +19,7 @@ The is an application with basic features like :
 1. car-portal-api (Spring boot rest api)
 2. car-portal-ui (Angular 7 UI app)
 3. Planning docs (API doc generated via swagger)
-4. Screen Designs (Screenshot of working app with all features)
+4. screen-capture (1).mp4 (This video demonstrate whole application)
 
 <b>Tech-stack :</b>
 
@@ -54,7 +54,7 @@ maven
 
 ### Design
 
-* Screen Designs
+
  
 
 
